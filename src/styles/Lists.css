@@ -1,0 +1,114 @@
+
+body{
+  margin:0;
+  box-sizing: border-box;
+  padding:0; 
+}
+
+#invisible-checkbox {
+  opacity: 0;
+}
+
+li{
+  display:flex;
+  align-items: center;
+}
+textarea {
+    padding:0.25rem 0.5rem;
+    border: 2px solid transparent;
+    background-color: #ffffff;
+    border-radius: 5px;
+    font-size: 1em;
+    resize:none;
+    /* height: 1em; */
+}
+
+textarea:focus {
+  outline: none; /* Removes the default focus outline */
+  border: 2px solid black;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0 0px; /* i changed this thing here to get rid of tiny borders on the sides */
+  /* margin: 0 5px; */
+}
+
+li {
+  border-radius: 5px;
+}
+
+
+.task-list {
+  filter:drop-shadow(2px 2px 5px rgba(0,0,0,0.5));
+  padding: 2rem;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30vh;
+  /* transform: translate(0, 100%); */
+}
+.list-items-container{
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  width:100%;
+
+}
+.task-container{
+  padding:0.25rem;
+}
+hr{
+  width:100%;
+  border-width:2px;
+}
+.displayed-task{
+  padding:0 .5rem;
+}
+* {
+  color: rgb(0, 0, 0);
+  font-family: 'Open Sans', serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.list-name {
+  font-size: 2em;
+}
+.list-header{
+  display: flex;
+  width:100%;
+  justify-content: space-between;
+  padding:0 0 .25rem;
+}
+
+/* editmode */
+#edit-mode-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  width:100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.1);
+}
+.edit-mode{
+  position:absolute;
+  
+}
+
+.title-input{
+  width:80%;
+}
