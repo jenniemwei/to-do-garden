@@ -28,14 +28,14 @@ export default function AllTaskLists() {
     },
   ])
 
-  function handleAddTask() {
+  function handleNewList() {
     setTaskLists([
       ...taskLists,
       {
-        name: "",
+        name: "Title",
         currentItems: [],
         completedItems: [],
-        editModeDisplayed: false,
+        editModeDisplayed: true,
         optionsDisplayed: false,
       }
     ])
@@ -46,20 +46,18 @@ export default function AllTaskLists() {
   return (
     <div className="lists-container">
 
-      {/* {taskLists.map((taskList, index) => {
+      {taskLists.map((taskList, index) => {
         return (
           <TaskList
-            index={index}
-            title={taskList.title}
-            currentItems={taskList.currentItems}
-            completedItems={taskList.completedItems}
-            optionsDisplayed={taskList.optionsDisplayed}
-            editModeDisplayed={taskList.editModeDisplayed}
+            listIndex={index}
+            taskLists={taskLists}
             setTaskLists={setTaskLists}
           />
         )
-      })} */}
-      <TaskList/>
+      })}
+      <button onClick={(event)=>{handleNewList(event)}}>New List</button>
+      {/* <TaskList/>
+      <TaskList/> */}
       {/* <button className="add-list-button" onClick={() => handleAddTask}>Add Task</button> */}
     </div>
   )

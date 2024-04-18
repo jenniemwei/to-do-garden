@@ -48,10 +48,10 @@ li {
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   width: 30vh;
-  /* transform: translate(0, 100%); */
+  
+
 }
 .list-items-container{
   display: flex;

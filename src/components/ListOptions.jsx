@@ -1,16 +1,17 @@
 import React, {useState} from 'react'
 import '../styles/ListOptions.css';
 
-export default function ListOptions({setEditModeDisplayed, setOptionsDisplayed}) {
+export default function ListOptions({taskLists, handleChangeTaskState,listIndex}) {
+
     function handleDelete(event){
          const selectedList = event.target.parentElement.parentElement.parentElement.parentElement;
          selectedList.style.background='red'
-         setOptionsDisplayed(false)
+         handleChangeTaskState(listIndex, "optionsDisplayed", false)
     }
 
     function handleEdit(event){
-        setEditModeDisplayed(true)
-        setOptionsDisplayed(false)
+        handleChangeTaskState(listIndex, "editModeDisplayed", true)
+        handleChangeTaskState(listIndex, "optionsDisplayed", false)
     }
     
     return (
@@ -23,7 +24,7 @@ export default function ListOptions({setEditModeDisplayed, setOptionsDisplayed})
                     <button onClick={(event)=>handleEdit(event)}className="edit-option">Edit List</button>
                 </li>
                 <li>
-                    <button onClick={() => setOptionsDisplayed(false)} className="edit-option">Close</button>
+                    <button onClick={() => handleChangeTaskState(listIndex, "optionsDisplayed", false)} className="edit-option">Close</button>
                 </li>
             </ul>
         </div>
