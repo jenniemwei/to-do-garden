@@ -8,8 +8,10 @@ export default function AllTaskLists() {
       title: "Task List 1",
       currentItems: [
         "Task 1",
+        'Task 2',
+        'Task 3',
       ],
-      completedItems: [
+      checkedItems: [
         "Task 2",
       ],
       editModeDisplayed: false,
@@ -20,7 +22,7 @@ export default function AllTaskLists() {
       currentItems: [
         "Task 3",
       ],
-      completedItems: [
+      checkedItems: [
         "Task 4",
       ],
       editModeDisplayed: false,
@@ -34,7 +36,7 @@ export default function AllTaskLists() {
       {
         name: "Title",
         currentItems: [],
-        completedItems: [],
+        checkedItems: [],
         editModeDisplayed: true,
         optionsDisplayed: false,
       }
@@ -44,7 +46,7 @@ export default function AllTaskLists() {
 
 
   return (
-    <div className="lists-container">
+    <div className="all-lists-container">
 
       {taskLists.map((taskList, index) => {
         return (

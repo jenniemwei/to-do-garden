@@ -4,27 +4,29 @@ import ListOptions from './ListOptions'
 
 export default function EditListMode({ taskLists, handleChangeTaskState, listIndex}) {
 
-  console.log("LIST INDEX", listIndex)
   const currentTitle=taskLists[listIndex].title
-  console.log(currentTitle)
   const [editingTitle, setEditingTitle]=useState(currentTitle)
   const listItems = taskLists[listIndex].currentItems
   const [editingList, setEditingList]=useState([...listItems])
-  const checkedItems = taskLists[listIndex].completedItems
-  const editModeDisplayed = taskLists[listIndex].editModeDisplayed
-  const optionsDisplayed = taskLists[listIndex].optionsDisplayed
+  // const checkedItems = taskLists[listIndex].completedItems
+  // const editModeDisplayed = taskLists[listIndex].editModeDisplayed
+  // const optionsDisplayed = taskLists[listIndex].optionsDisplayed
 
 
     const listRef = useRef([]);
 
     useEffect(() => {
       const size = listRef.current.length;
-      listRef.current[size - 1].focus(); //focuses on recently created task
+      if (size > 0) {
+        listRef.current[size - 1].focus(); //focuses on recently created task
+      }
       
     }, [editingList.length]);
   
     function handleTaskChange(event, index) {
-      const newListItems = [...listItems]
+      const newListItems = [...editingList]
+      console.log("NEW LIST ITEMS", newListItems) 
+      console.log("INDEX", index)
       newListItems[index] = event.target.value
       setEditingList(newListItems)
       event.target.style.height = '1em';
@@ -40,6 +42,7 @@ export default function EditListMode({ taskLists, handleChangeTaskState, listInd
       const taskContent=event.target.value
       // console.log("CLICKED OUT")
       if (taskContent.length===0){
+        console.log("EMPTY TASK")
         const newEditingList=[...editingList]
         newEditingList.pop(index)
         setEditingList(newEditingList)
@@ -55,13 +58,14 @@ export default function EditListMode({ taskLists, handleChangeTaskState, listInd
     }
 
     function handleSave(event){
+    
       handleChangeTaskState(listIndex, "currentItems", editingList)
       handleChangeTaskState(listIndex, "title", editingTitle)
     }
     
     return (
       <div id="edit-mode-container" >
-      <div className="task-list edit-mode">
+      <div className="list-container edit-mode">
         <div className='list-header'>      
           <input className="title-input list-name" value={editingTitle} onChange={(event)=>{handleTitleChange(event)}}></input>
           <button onClick={(event)=>{handleCloseEditMode(event)}}>Close</button>

@@ -2,6 +2,7 @@
 // import TaskList from './components/TaskList';
 import { useState } from "react";
 import AllTaskLists from './components/AllTaskLists';
+import './styles/fonts.css';
 
 
 function App() {
