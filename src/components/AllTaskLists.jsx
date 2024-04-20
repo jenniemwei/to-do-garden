@@ -11,16 +11,16 @@ export default function AllTaskLists() {
   const [taskLists, setTaskLists] = useState([]); 
   
   useEffect(() => {
-    // const taskLists = JSON.parse(localStorage.getItem("taskLists"));
-    // if (taskLists) {
-    //   setTaskLists(taskLists);
-    // }
+    const taskLists = JSON.parse(localStorage.getItem("taskLists"));
+    if (taskLists) {
+      setTaskLists(taskLists);
+    }
   }, []);
 
   useEffect(() => {
-    // if (taskLists.length > 0) {
-    //   localStorage.setItem("taskLists", JSON.stringify(taskLists));
-    // }
+    if (taskLists.length > 0) {
+      localStorage.setItem("taskLists", JSON.stringify(taskLists));
+    }
   } , [taskLists]);
 
 

@@ -14,8 +14,8 @@ li{
   align-items: center;
 }
 textarea {
-    padding:0.25rem 0.5rem;
-    border: 2px solid transparent;
+    /* padding:0.25rem 0.5rem; */
+    border: 0px solid transparent;
     background-color: #ffffff;
     border-radius: 5px;
     font-size: 1em;
@@ -30,13 +30,12 @@ textarea:focus {
 
 ul {
   list-style-type: none;
-  padding: 0 0px; /* i changed this thing here to get rid of tiny borders on the sides */
-  /* margin: 0 5px; */
-}
+  padding: 0 0px; }
 
 li {
   border-radius: 5px;
 }
+
 
 .task-list{
   display: flex;
@@ -51,18 +50,22 @@ li {
 }
 .list-container {
   filter:drop-shadow(2px 2px 5px rgba(0,0,0,0.2));
-  padding: .5rem;
+  padding: 2rem;
   /* border: 1px solid #ccc; */
   border-radius: 10px;
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 30vh;
+  width: 20vw;
   /* height: 5rem; */
-  
 
 }
+/* .list-content{
+  width:80%;
+  margin: 25px;
+
+} */
 .list-items-container{
   display: flex;
   flex-direction: column;
@@ -73,15 +76,15 @@ li {
 .task-container{
   display: flex;
   align-items: flex-start;
-  padding:0.25rem;
+  margin:1rem;
 }
 hr{
   width:100%;
   border-width:2px;
 }
-.displayed-task{
+/* .displayed-task{
   padding:0 .5rem;
-}
+} */
 * {
   color: rgb(0, 0, 0);
   font-family: 'Open Sans', serif;
@@ -94,11 +97,11 @@ body {
 }
 
 .list-name {
-  /* font-size: 2vw; */
+  font-weight: 600;
+  text-transform: uppercase;
 }
 .list-header{
   display: flex;
-  /* width:30px; */
   width: 100%;
   justify-content: space-between;
   padding:0 0 .25rem;
@@ -124,12 +127,10 @@ body {
 
 .title-input{
   margin: 1rem;
+  font-size: 2em;
   width:80%;
 }
 
-.task {
-  margin-top: .9rem;
-}
 
 .edit-list-close-button {
   background-color: transparent;

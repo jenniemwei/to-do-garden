@@ -21,7 +21,7 @@ export default function ListOptions({taskLists, handleChangeTaskState,listIndex,
         <div className="list-options-container">
             <ul>
                 <li>
-                    <button onClick={(event)=>handleDelete(event, listIndex)} className="edit-option">Delete List</button>
+                    <button onClick={(event)=>handleDelete(event, listIndex)} className="edit-option ">Delete List</button>
                 </li>
                 <li>
                     <button onClick={(event)=>handleEdit(event)}className="edit-option">Edit List</button>

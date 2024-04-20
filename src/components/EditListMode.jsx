@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import ListOptions from './ListOptions'
 import { X } from 'react-feather'
 
+
 export default function EditListMode({ taskLists, handleChangeTaskState, listIndex}) {
 
   const currentTitle=taskLists[listIndex].title
@@ -29,6 +30,7 @@ export default function EditListMode({ taskLists, handleChangeTaskState, listInd
       console.log("INDEX", index)
       newListItems[index] = event.target.value
       setEditingList(newListItems)
+      console.log("TASK LISTS: ",taskLists);
       event.target.style.height = '1em';
       event.target.style.height = `${event.target.scrollHeight}px`; 
       
@@ -61,7 +63,7 @@ export default function EditListMode({ taskLists, handleChangeTaskState, listInd
     }
 
     function handleSave(event){
-    
+      handleChangeTaskState(listIndex, "editModeDisplayed", false)
       handleChangeTaskState(listIndex, "currentItems", editingList)
       handleChangeTaskState(listIndex, "title", editingTitle)
     }
@@ -75,7 +77,7 @@ export default function EditListMode({ taskLists, handleChangeTaskState, listInd
           </div>
         <ul>
           {editingList.map((item, index) => (
-            <li key={index}>
+            <li className="task-container" key={index}>
               <input 
                 type= 'checkbox' disabled={true}/>
               <textarea 
@@ -84,16 +86,16 @@ export default function EditListMode({ taskLists, handleChangeTaskState, listInd
                 ref = {el => listRef.current = [...listRef.current, el]}
                 onBlur={(event) => {handleUserClickOut(event,index)}}  
                 onChange={(event) => {handleTaskChange(event, index)}} 
-                className="task"
+                className="task-text"
               />
             </li>
           ))}
-          <li>
+          <li className="task-container">
             <textarea 
               rows="1" 
               placeholder='+ New Task' 
               onClick={(e) => createNewTask(e)} 
-              className="task"
+              className="task-text"
             /> 
             <input 
               disabled={true}

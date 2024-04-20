@@ -1,6 +1,6 @@
 *{
   margin:0;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 .all-lists-container {
   display: flex;
@@ -15,26 +15,35 @@ hr{
   font-size: 14px;
   align-self: center;
 }
-p{
-  font-size: 1.3em;
-  margin: 5px;
+p, .task-text{
+  font-size: 1.5em;
+  margin: .3rem .5rem;
+}
+input[type="checkbox"] {
+  margin-right: 0.5rem;
+  margin-top: .7rem;
+  width: 1.3rem;
+  height: 1.3rem;
 }
 
 h3{
-  font-size: 1.5em;
-  margin: 10px 0 0 0;
+  font-size: 1.8em;
+  color: rgb(145, 145, 145);
+  margin: 15px 0 0 0;
+  font-weight:600
 }
 .displayed-task{
   width:80%;
   overflow-wrap: break-word;
 }
 h1{
-  padding: 1rem;
+  padding-left: 1rem;
+  margin: 0;
   font-size: 4rem;
 }
 
 #new-list-button{
-  margin: 1em;
+  margin-right: 1.5rem;
   font-size: 2em;
   align-self: center;
   border-radius: 10px;
@@ -44,5 +53,6 @@ h1{
 #homepage-header{
   width: 100vw;
   display: flex;
+  margin-top: 1.5rem;
   justify-content: space-between;
 }
