@@ -2,7 +2,7 @@
 // make save close edit menu
 // make close edit mode an X
 // make edit options a three dot
-
+import Masonry,{ResponsiveMasonry} from "react-responsive-masonry"; 
 import TaskList from "./TaskList"
 import "../styles/AllTaskLists.css"
 import { useEffect, useState } from "react"
@@ -40,13 +40,15 @@ export default function AllTaskLists() {
 
 
   return (
-    <div>
+    <div id="website-container">
     <header id="homepage-header">
-      <h1>TO DO GARDEN</h1>
-    <button id="new-list-button" onClick={(event)=>{handleNewList(event)}}>+ NEW LIST</button>
+      <h1 id="homepage-title">TO DO GARDEN</h1>
+      <button id="new-list-button" onClick={(event)=>{handleNewList(event)}}>+ NEW LIST</button>
     </header>
-    <div className="all-lists-container">
-
+    {/* className="all-lists-container" */}
+    <ResponsiveMasonry 
+    columnsCountBreakPoints={{ 700: 1, 800: 2, 1200: 3 }}>
+      <Masonry gutter="2vw">
       {taskLists.map((taskList, index) => {
         return (
           <TaskList
@@ -56,11 +58,8 @@ export default function AllTaskLists() {
           />
         )
       })}
-  
-      {/* <TaskList/>
-      <TaskList/> */}
-      {/* <button className="add-list-button" onClick={() => handleAddTask}>Add Task</button> */}
-    </div>
+      </Masonry>
+    </ResponsiveMasonry>
 </div>
   )
 }

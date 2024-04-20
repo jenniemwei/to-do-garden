@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import "../styles/Lists.css";
 import ListOptions from "./ListOptions";
 import EditListMode from "./EditListMode";
-import { Textfit } from "react-textfit";
 import { MoreVertical } from "react-feather";
+
 
 export default function TaskList({ listIndex, taskLists, setTaskLists }) {
   function handleChangeTaskState(index, key, value) {
@@ -37,6 +37,9 @@ export default function TaskList({ listIndex, taskLists, setTaskLists }) {
   }
 
   function handleOptionsClick(event) {
+    for (let i = 0; i < taskLists.length; i++) {
+      handleChangeTaskState(i, "optionsDisplayed", false);
+    }
     const currentOptionsDisplayed = taskLists[listIndex].optionsDisplayed;
     handleChangeTaskState(
       listIndex,
@@ -59,19 +62,19 @@ export default function TaskList({ listIndex, taskLists, setTaskLists }) {
           listIndex={listIndex}
         />
       )}
-      <div className="task-list">
-        <div className="list-container">
+      <div className="task-list" style={{zIndex: 1000 - (listIndex % (window.innerWidth > 900 ? 3 : 2))}}>
+        <div className="list-container ">
           <div className="list-header">
-            <Textfit
-              className="list-name"
+            <div
+              className="list-title"
               mode="single"
-              forceSingleModeWidth={true}
-              style={{ width: "90%" }}
-              min={10}
-              max={30}
+              // forceSingleModeWidth={true}
+              // style={{ width: "80%" }}
+              // min={10}
+              // max={30}
             >
               {taskLists[listIndex].title}
-            </Textfit>
+            </div>
             <div className="more-container">
             <MoreVertical
              id="more-button"
@@ -108,7 +111,7 @@ export default function TaskList({ listIndex, taskLists, setTaskLists }) {
                 <p className="displayed-task">{item}</p>
               </li>
             ))}
-            <h3>Completed</h3>
+            {checkedItems.length != 0 && <h3>Completed</h3>}
             {checkedItems.map((item, index) => (
               <li className="task-container" key={index + listItems.length}>
                 <input

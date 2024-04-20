@@ -1,14 +1,31 @@
-*{
-  margin:0;
+* {
   font-family: 'Inter', sans-serif;
 }
+
+html {
+  font-size: 16px; /* Set base font size to 16px */
+}
+
+@media screen and (max-width: 700px) {
+  html {
+    font-size: 12px; /* Decrease font size for smaller screens */
+  }
+}
+
+ul{
+  width: 100%;
+}
+
+#website-container {
+  width: 95vw;
+
+}
+
 .all-lists-container {
   display: flex;
   flex-wrap: wrap;
 }
-hr{
-  margin:5px;
-}
+
 .add-list-button {
   margin: 0 0 0 10px;
   height: 30px;
@@ -16,6 +33,7 @@ hr{
   align-self: center;
 }
 p, .task-text{
+  width: 100%;
   font-size: 1.5em;
   margin: .3rem .5rem;
 }
@@ -36,23 +54,28 @@ h3{
   width:80%;
   overflow-wrap: break-word;
 }
-h1{
-  padding-left: 1rem;
-  margin: 0;
-  font-size: 4rem;
-}
 
 #new-list-button{
-  margin-right: 1.5rem;
-  font-size: 2em;
+  font-size: 1vw;
+  font-weight: 600;
   align-self: center;
   border-radius: 10px;
   border: none;
+  font-size: 1.5rem;
+  padding: .5rem .8rem;
   background-color: rgb(140, 227, 239);
 }
+#homepage-title{
+  margin:0px;
+  padding-left: 0px;
+  font-size: 3rem;
+}
 #homepage-header{
-  width: 100vw;
+  /* width: 100vw; */
+  /* background-color: rgb(140, 227, 239); */
   display: flex;
-  margin-top: 1.5rem;
+  margin: 1.5rem 0;
   justify-content: space-between;
+  gap: 50%;
+  flex-wrap: wrap;
 }

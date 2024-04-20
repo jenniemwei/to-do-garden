@@ -1,8 +1,6 @@
 
-body{
-  margin:0;
+*{
   box-sizing: border-box;
-  padding:0; 
 }
 
 #invisible-checkbox {
@@ -30,7 +28,8 @@ textarea:focus {
 
 ul {
   list-style-type: none;
-  padding: 0 0px; }
+  padding: 0 0px;
+}
 
 li {
   border-radius: 5px;
@@ -41,12 +40,14 @@ li {
   display: flex;
   flex-direction: row;
   background: linear-gradient(rgb(188, 247, 255), rgb(255, 255, 255));
-  margin: 2vh;
+  /* border: 5px solid #ffffff; */
+  /* margin: 2vh; */
   border-radius:10px;
-  filter:drop-shadow(2px 2px 5px rgba(0,0,0,0.3));  
+  filter:drop-shadow(2px 2px 5px rgba(0,0,0,0.3));
+  width:100%;
 }
 .flower-container{
-  width:12vh;
+  /* width:12vh; */
 }
 .list-container {
   filter:drop-shadow(2px 2px 5px rgba(0,0,0,0.2));
@@ -57,15 +58,11 @@ li {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 20vw;
-  /* height: 5rem; */
+  width: 70%;
+
 
 }
-/* .list-content{
-  width:80%;
-  margin: 25px;
 
-} */
 .list-items-container{
   display: flex;
   flex-direction: column;
@@ -76,7 +73,7 @@ li {
 .task-container{
   display: flex;
   align-items: flex-start;
-  margin:1rem;
+  /* margin:1rem; */
 }
 hr{
   width:100%;
@@ -96,15 +93,19 @@ body {
   align-items: center;
 }
 
-.list-name {
+.list-title {
+  width: 80%;
   font-weight: 600;
+  font-size: 2rem;
+  overflow-wrap: break-word;
   text-transform: uppercase;
 }
 .list-header{
   display: flex;
+  align-items: start;
   width: 100%;
   justify-content: space-between;
-  padding:0 0 .25rem;
+  /* padding:0 0 .25rem; */
 }
 
 /* editmode */
