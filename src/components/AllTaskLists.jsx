@@ -1,34 +1,29 @@
+// things to do:
+// make save close edit menu
+// make close edit mode an X
+// make edit options a three dot
+
 import TaskList from "./TaskList"
 import "../styles/AllTaskLists.css"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export default function AllTaskLists() {
-  const [taskLists, setTaskLists] = useState([
-    {
-      title: "Task List 1",
-      currentItems: [
-        "Task 1",
-        'Task 2',
-        'Task 3',
-      ],
-      checkedItems: [
-        "Task 2",
-      ],
-      editModeDisplayed: false,
-      optionsDisplayed: false,
-    },
-    {
-      title: "Task List 2",
-      currentItems: [
-        "Task 3",
-      ],
-      checkedItems: [
-        "Task 4",
-      ],
-      editModeDisplayed: false,
-      optionsDisplayed: false,
-    },
-  ])
+  const [taskLists, setTaskLists] = useState([]); 
+  
+  useEffect(() => {
+    const taskLists = JSON.parse(localStorage.getItem("taskLists"));
+    if (taskLists) {
+      setTaskLists(taskLists);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (taskLists.length > 0) {
+      localStorage.setItem("taskLists", JSON.stringify(taskLists));
+    }
+  } , [taskLists]);
+
+
 
   function handleNewList() {
     setTaskLists([
@@ -44,8 +39,11 @@ export default function AllTaskLists() {
   }
 
 
-
   return (
+    <div>
+    <header id="homepage-header">
+    <button id="new-list-button" onClick={(event)=>{handleNewList(event)}}>New List</button>
+    </header>
     <div className="all-lists-container">
 
       {taskLists.map((taskList, index) => {
@@ -57,10 +55,11 @@ export default function AllTaskLists() {
           />
         )
       })}
-      <button onClick={(event)=>{handleNewList(event)}}>New List</button>
+  
       {/* <TaskList/>
       <TaskList/> */}
       {/* <button className="add-list-button" onClick={() => handleAddTask}>Add Task</button> */}
     </div>
+</div>
   )
 }

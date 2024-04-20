@@ -59,6 +59,7 @@ li {
   flex-direction: column;
   align-items: center;
   width: 30vh;
+  /* height: 5rem; */
   
 
 }
@@ -70,6 +71,8 @@ li {
 
 }
 .task-container{
+  display: flex;
+  align-items: flex-start;
   padding:0.25rem;
 }
 hr{
@@ -91,11 +94,12 @@ body {
 }
 
 .list-name {
-  font-size: 2em;
+  /* font-size: 2vw; */
 }
 .list-header{
-  display: flex;
-  width:100%;
+  /* display: flex; */
+  /* width:30px; */
+  width: 100%;
   justify-content: space-between;
   padding:0 0 .25rem;
 }
@@ -120,4 +124,8 @@ body {
 
 .title-input{
   width:80%;
+}
+
+.task {
+  margin-top: .9rem;
 }

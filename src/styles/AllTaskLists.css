@@ -28,3 +28,15 @@ h3{
   width:80%;
   overflow-wrap: break-word;
 }
+h1{
+  
+}
+
+#new-list-button{
+  margin: 0 0 0 10px;
+  height: 30px;
+  font-size: 1em;
+  align-self: center;
+}
+#homepage-header{
+}

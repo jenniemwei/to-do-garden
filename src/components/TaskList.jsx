@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../styles/Lists.css";
 import ListOptions from "./ListOptions";
 import EditListMode from "./EditListMode";
+import { Textfit } from 'react-textfit';
 
 export default function TaskList({ listIndex, taskLists, setTaskLists }) {
   // const[listItems, setListItems] = useState(['task 1 task 1 task 1 ','task 2','task 3 ', 'task 4']) //[ declared thing, how you set it to something/override]
@@ -68,10 +69,17 @@ export default function TaskList({ listIndex, taskLists, setTaskLists }) {
         />
       )}
       <div className="task-list">
-        <div className="list-container">
+        <div className="list-container" >
           <div className="list-header">
-            <h1 className="list-name">{taskLists[listIndex].title}</h1>
-            {/* make title not an input not working */}
+            <Textfit 
+              className="list-name"
+              mode="single"
+              forceSingleModeWidth={true}
+              // style={{width: 500}}
+              max={20}
+            >
+              {taskLists[listIndex].title}
+            </Textfit>
             <button
               onClick={(event) => {
                 handleOptionsClick(event);
