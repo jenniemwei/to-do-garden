@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import ListOptions from './ListOptions'
-
+import { X } from 'react-feather'
 
 export default function EditListMode({ taskLists, handleChangeTaskState, listIndex}) {
 
@@ -17,7 +17,7 @@ export default function EditListMode({ taskLists, handleChangeTaskState, listInd
 
     useEffect(() => {
       const size = listRef.current.length;
-      if (size > 0) {
+      if (size > 0 && listRef.current[size - 1] !== null) {
         listRef.current[size - 1].focus(); //focuses on recently created task
       }
       
@@ -50,6 +50,9 @@ export default function EditListMode({ taskLists, handleChangeTaskState, listInd
     }
     function handleCloseEditMode(event){
       handleChangeTaskState(listIndex, "editModeDisplayed", false)
+      if (taskLists[listIndex].currentItems.length === 0 && taskLists[listIndex].title === "Title") {
+
+      }
     }
   
     function createNewTask(event) {
@@ -68,9 +71,8 @@ export default function EditListMode({ taskLists, handleChangeTaskState, listInd
       <div className="list-container edit-mode">
         <div className='list-header'>      
           <input className="title-input list-name" value={editingTitle} onChange={(event)=>{handleTitleChange(event)}}></input>
-          <button onClick={(event)=>{handleCloseEditMode(event)}}>Close</button>
+          <button onClick={(event)=>{handleCloseEditMode(event)}} className="edit-list-close-button"><X color="gray"/></button>
           </div>
-  
         <ul>
           {editingList.map((item, index) => (
             <li key={index}>

@@ -94,6 +94,7 @@ export default function TaskList({ listIndex, taskLists, setTaskLists }) {
             <ListOptions
               taskLists={taskLists}
               handleChangeTaskState={handleChangeTaskState}
+              setTaskLists={setTaskLists}
               listIndex={listIndex}
             />
           )}

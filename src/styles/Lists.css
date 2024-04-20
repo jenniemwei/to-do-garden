@@ -47,11 +47,11 @@ li {
   filter:drop-shadow(2px 2px 5px rgba(0,0,0,0.3));  
 }
 .flower-container{
-  width:15vh;
+  width:12vh;
 }
 .list-container {
   filter:drop-shadow(2px 2px 5px rgba(0,0,0,0.2));
-  padding: 2rem;
+  padding: .5rem;
   /* border: 1px solid #ccc; */
   border-radius: 10px;
   background-color: #ffffff;
@@ -97,7 +97,7 @@ body {
   /* font-size: 2vw; */
 }
 .list-header{
-  /* display: flex; */
+  display: flex;
   /* width:30px; */
   width: 100%;
   justify-content: space-between;
@@ -123,9 +123,18 @@ body {
 }
 
 .title-input{
+  margin: 1rem;
   width:80%;
 }
 
 .task {
   margin-top: .9rem;
+}
+
+.edit-list-close-button {
+  background-color: transparent;
+  border: none;
+  align-self: flex-start;
+  margin: 0;
+  padding: 0;
 }
