@@ -3,10 +3,9 @@ import "../styles/Lists.css";
 import ListOptions from "./ListOptions";
 import EditListMode from "./EditListMode";
 import { Textfit } from "react-textfit";
-import { MoreVertical } from 'react-feather'
+import { MoreVertical } from "react-feather";
 
 export default function TaskList({ listIndex, taskLists, setTaskLists }) {
-
   function handleChangeTaskState(index, key, value) {
     const newTaskLists = [...taskLists];
     newTaskLists[index][key] = value;
@@ -62,63 +61,66 @@ export default function TaskList({ listIndex, taskLists, setTaskLists }) {
       )}
       <div className="task-list">
         <div className="list-container">
-            <div className="list-header">
-              <Textfit
-                className="list-name"
-                mode="single"
-                forceSingleModeWidth={true}
-                style={{ width: "90%" }}
-                min={10}
-                max={30}
-              >
-                {taskLists[listIndex].title}
-              </Textfit>
-              <MoreVertical
-                onClick={(event) => {
-                  handleOptionsClick(event);
-                }}
-              >
-              </MoreVertical>
+          <div className="list-header">
+            <Textfit
+              className="list-name"
+              mode="single"
+              forceSingleModeWidth={true}
+              style={{ width: "90%" }}
+              min={10}
+              max={30}
+            >
+              {taskLists[listIndex].title}
+            </Textfit>
+            <div className="more-container">
+            <MoreVertical
+             id="more-button"
+              onClick={(event) => {
+                handleOptionsClick(event);
+              }}
+            ></MoreVertical>
             </div>
-            <hr></hr>
+           
+          </div>
+          <hr></hr>
 
-            {optionsDisplayed && (
-              <ListOptions
-                taskLists={taskLists}
-                handleChangeTaskState={handleChangeTaskState}
-                setTaskLists={setTaskLists}
-                listIndex={listIndex}
-              />
-            )}
+          {optionsDisplayed && (
+            <ListOptions
+              taskLists={taskLists}
+              handleChangeTaskState={handleChangeTaskState}
+              setTaskLists={setTaskLists}
+              listIndex={listIndex}
+            />
+          )}
 
-            <ul className="list-items-container">
-              {listItems.map((item, index) => (
-                <li className="task-container" key={index}>
-                  <input
-                    type="checkbox"
-                    checked={false}
-                    onChange={(event) => {
-                      handleCheckBoxChange(event, index, item);
-                    }}
-                    className="checkbox"
-                    autoFocus
-                  />
-                  <p className="displayed-task">{item}</p>
-                </li>
-              ))}
-              <h3>Completed</h3>
-              {checkedItems.map((item, index) => (
-                <li className="task-container" key={index + listItems.length}>
-                  <input
-                    type="checkbox"
-                    disabled={true}
-                    checked={true}
-                    // className="task"
-                  />
-                  <p className="displayed-task">{item}</p>
-                </li>
-              ))}
-            </ul>
+          <ul className="list-items-container">
+            {listItems.map((item, index) => (
+              <li className="task-container" key={index}>
+                <input
+                  type="checkbox"
+                  checked={false}
+                  onChange={(event) => {
+                    handleCheckBoxChange(event, index, item);
+                  }}
+                  className="checkbox"
+                  autoFocus
+                />
+                <p className="displayed-task">{item}</p>
+              </li>
+            ))}
+            <h3>Completed</h3>
+            {checkedItems.map((item, index) => (
+              <li className="task-container" key={index + listItems.length}>
+                <input
+                  type="checkbox"
+                  disabled={true}
+                  checked={true}
+                  // className="task"
+                />
+                <p className="displayed-task">{item}</p>
+              </li>
+            ))}
+          </ul>
         </div>
         <div className="flower-container">
           <p>flower</p>
