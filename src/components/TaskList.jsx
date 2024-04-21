@@ -123,7 +123,8 @@ export default function TaskList({ listIndex, taskLists, setTaskLists }) {
           </ul>
         </div>
         <div className="flower-container">
-          <p>flower</p>
+          <p>flower count: {Math.floor(taskLists[listIndex].checkedItems.length/5)}</p>
+          <div className="flower-placeholder"></div>
         </div>
       </div>
     </>
