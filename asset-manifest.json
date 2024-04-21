@@ -1,13 +1,18 @@
 {
   "files": {
-    "main.css": "/to-do-lists/static/css/main.13a1e08e.css",
-    "main.js": "/to-do-lists/static/js/main.b38e9a87.js",
+    "main.css": "/to-do-lists/static/css/main.1b870a31.css",
+    "main.js": "/to-do-lists/static/js/main.17aac31a.js",
+    "static/media/Flower5.svg": "/to-do-lists/static/media/Flower5.ed98845e3691ef4ae7c3feba02cf045e.svg",
+    "static/media/Flower4.svg": "/to-do-lists/static/media/Flower4.8d3851fbbb751f1b647bbcbdc8aa1545.svg",
+    "static/media/Flower2.svg": "/to-do-lists/static/media/Flower2.01a23cd0ce2ed0387fe36d8a5b89b25c.svg",
+    "static/media/Flower3.svg": "/to-do-lists/static/media/Flower3.a8a7649434db871bd135d8d3a5d0879f.svg",
+    "static/media/Flower1.svg": "/to-do-lists/static/media/Flower1.3287f19e851928c8c676af4dd63d407e.svg",
     "index.html": "/to-do-lists/index.html",
-    "main.13a1e08e.css.map": "/to-do-lists/static/css/main.13a1e08e.css.map",
-    "main.b38e9a87.js.map": "/to-do-lists/static/js/main.b38e9a87.js.map"
+    "main.1b870a31.css.map": "/to-do-lists/static/css/main.1b870a31.css.map",
+    "main.17aac31a.js.map": "/to-do-lists/static/js/main.17aac31a.js.map"
   },
   "entrypoints": [
-    "static/css/main.13a1e08e.css",
-    "static/js/main.b38e9a87.js"
+    "static/css/main.1b870a31.css",
+    "static/js/main.17aac31a.js"
   ]
 }
