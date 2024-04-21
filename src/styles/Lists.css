@@ -43,6 +43,7 @@ li {
   border-radius:10px;
   filter:drop-shadow(2px 2px 5px rgba(0,0,0,0.3));
   width:100%;
+  place-items: stretch;
 }
 
 .list-container {
@@ -54,7 +55,7 @@ li {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 70%;
+  min-width: 70%;
 
 
 }
@@ -95,12 +96,14 @@ body {
   font-size: 2rem;
   overflow-wrap: break-word;
   text-transform: uppercase;
+  justify-self: flex-start;
 }
 .list-header{
   display: flex;
   align-items: start;
   width: 100%;
   justify-content: space-between;
+  place-content: stretch;
   /* padding:0 0 .25rem; */
 }
 
@@ -147,7 +150,7 @@ body {
 
 }
 .flower-placeholder{
-  background-color:black;
+  background-color:rgb(255, 147, 147);
   width:40px;
   height: 40px;
 }

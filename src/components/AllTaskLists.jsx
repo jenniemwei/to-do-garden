@@ -2,6 +2,10 @@
 // make save close edit menu
 // make close edit mode an X
 // make edit options a three dot
+//delete empty list
+//disply 5 reent tasks
+//completed count
+
 import Masonry,{ResponsiveMasonry} from "react-responsive-masonry"; 
 import TaskList from "./TaskList"
 import "../styles/AllTaskLists.css"

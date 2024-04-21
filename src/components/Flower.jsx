@@ -3,4 +3,10 @@ import React, { useState } from "react";
 // add a flower counter to the tasklist object
 export default function Flower({ handleChangeTaskState, listIndex, taskLists}) {
 
+
+return(
+    <div className="flower-container">
+        <div>{flower}</div>
+    </div>
+)
 }

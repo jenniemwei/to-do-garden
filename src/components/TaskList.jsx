@@ -3,9 +3,24 @@ import "../styles/Lists.css";
 import ListOptions from "./ListOptions";
 import EditListMode from "./EditListMode";
 import { MoreVertical } from "react-feather";
+import Flower1 from "../Flowers/Flower1.svg";
+import Flower2 from "../Flowers/Flower2.svg";
+import Flower3 from "../Flowers/Flower3.svg";
+import Flower4 from "../Flowers/Flower4.svg";
+import Flower5 from "../Flowers/Flower5.svg";
 
 
 export default function TaskList({ listIndex, taskLists, setTaskLists }) {
+  const[flower, setFlower]=useState(Flower1)
+  const allFlowers=
+{
+0:Flower1,
+1:Flower2,
+2:Flower3,
+3:Flower4,
+4:Flower5,
+}
+
   function handleChangeTaskState(index, key, value) {
     const newTaskLists = [...taskLists];
     newTaskLists[index][key] = value;
@@ -18,17 +33,11 @@ export default function TaskList({ listIndex, taskLists, setTaskLists }) {
   const optionsDisplayed = taskLists[listIndex].optionsDisplayed;
 
   function handleCheckBoxChange(event, index, item) {
-    console.log("item", item);
-    const currCheckbox = event.target;
-    console.log("currCheckbox", currCheckbox);
-    // currCheckbox.checked="true;
-    console.log("currCheckbox", event.target.checked);
-    // setChecked()
     const newListItems = [...listItems];
     const newCheckedItems = [...checkedItems, item];
-    console.log("newCheckedItems", newCheckedItems);
     newListItems.splice(index, 1);
-
+    const newFlower=allFlowers[((newCheckedItems.length)%5)]
+    setFlower(newFlower);  
     // const newListItems = listItems.filter((item, i) => i !== index)
 
     handleChangeTaskState(listIndex, "checkedItems", newCheckedItems);
@@ -124,7 +133,7 @@ export default function TaskList({ listIndex, taskLists, setTaskLists }) {
         </div>
         <div className="flower-container">
           <p>flower count: {Math.floor(taskLists[listIndex].checkedItems.length/5)}</p>
-          <div className="flower-placeholder"></div>
+          <img  src={flower} alt=""/>
         </div>
       </div>
     </>
