@@ -23,12 +23,14 @@
     filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.5));
     width:10rem;
     border-radius: 10px;
-    position: absolute;
-    top: 15%;
-    left:90%;
     border-width:0;
     align-items: center;
     justify-content: center;
+    
+    .task-list &{
+    position: absolute;
+    top: 15%;
+    left:90%;}
 }
 /* .option{
     width: 100%;
