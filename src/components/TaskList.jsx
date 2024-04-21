@@ -68,10 +68,7 @@ export default function TaskList({ listIndex, taskLists, setTaskLists }) {
             <div
               className="list-title"
               mode="single"
-              // forceSingleModeWidth={true}
-              // style={{ width: "80%" }}
-              // min={10}
-              // max={30}
+    
             >
               {taskLists[listIndex].title}
             </div>

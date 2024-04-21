@@ -27,10 +27,9 @@
     align-items: center;
     justify-content: center;
     
-    .task-list &{
     position: absolute;
-    top: 15%;
-    left:90%;}
+    top: 5rem;
+    right: -5rem;
 }
 /* .option{
     width: 100%;
