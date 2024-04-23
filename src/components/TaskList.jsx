@@ -120,7 +120,7 @@ export default function TaskList({ listIndex, taskLists, setTaskLists }) {
                   className="checkbox"
                   autoFocus
                 />
-                <p className="task-text">{item}</p>
+                <p className="displayed-task">{item}</p>
               </li>
             ))}
             {checkedItems.length != 0 && <h3>Completed</h3>}
