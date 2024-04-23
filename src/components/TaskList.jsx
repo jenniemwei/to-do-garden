@@ -3,23 +3,29 @@ import "../styles/Lists.css";
 import ListOptions from "./ListOptions";
 import EditListMode from "./EditListMode";
 import { MoreVertical } from "react-feather";
-import Flower1 from "../Flowers/Flower1.svg";
-import Flower2 from "../Flowers/Flower2.svg";
-import Flower3 from "../Flowers/Flower3.svg";
-import Flower4 from "../Flowers/Flower4.svg";
-import Flower5 from "../Flowers/Flower5.svg";
-
+import FlowerIcon from "../Flowers/FlowerIcon.svg";
 
 export default function TaskList({ listIndex, taskLists, setTaskLists }) {
-  const[flower, setFlower]=useState(Flower1)
-  const allFlowers=
-{
-0:Flower1,
-1:Flower2,
-2:Flower3,
-3:Flower4,
-4:Flower5,
-}
+  const allFlowers=[{
+    source: "Flower1",
+    alt: "This is the first flower"
+  },
+  {
+    source: "Flower2",
+    alt: "This is the second flower"
+  },
+  {
+    source: "Flower3",
+    alt: "This is the third flower"
+  },
+  {
+    source: "Flower4",
+    alt: "This is the fourth flower"
+  },
+  {
+    source: "Flower5",
+    alt: "This is the fifth flower"
+  }]
 
   function handleChangeTaskState(index, key, value) {
     const newTaskLists = [...taskLists];
@@ -36,8 +42,8 @@ export default function TaskList({ listIndex, taskLists, setTaskLists }) {
     const newListItems = [...listItems];
     const newCheckedItems = [...checkedItems, item];
     newListItems.splice(index, 1);
-    const newFlower=allFlowers[((newCheckedItems.length)%5)]
-    setFlower(newFlower);  
+    const newFlower = allFlowers[newCheckedItems.length % 5];
+    // setFlower(newFlower);
     // const newListItems = listItems.filter((item, i) => i !== index)
 
     handleChangeTaskState(listIndex, "checkedItems", newCheckedItems);
@@ -71,25 +77,25 @@ export default function TaskList({ listIndex, taskLists, setTaskLists }) {
           listIndex={listIndex}
         />
       )}
-      <div className="task-list" style={{zIndex: 1000 - (listIndex % (window.innerWidth > 900 ? 3 : 2))}}>
+      <div
+        className="task-list"
+        style={{
+          zIndex: 1000 - (listIndex % (window.innerWidth > 900 ? 3 : 2)),
+        }}
+      >
         <div className="list-container ">
           <div className="list-header">
-            <div
-              className="list-title"
-              mode="single"
-    
-            >
+            <div className="list-title" mode="single">
               {taskLists[listIndex].title}
             </div>
             <div className="more-container">
-            <MoreVertical
-             id="more-button"
-              onClick={(event) => {
-                handleOptionsClick(event);
-              }}
-            ></MoreVertical>
+              <MoreVertical
+                id="more-button"
+                onClick={(event) => {
+                  handleOptionsClick(event);
+                }}
+              ></MoreVertical>
             </div>
-           
           </div>
           <hr></hr>
 
@@ -114,7 +120,7 @@ export default function TaskList({ listIndex, taskLists, setTaskLists }) {
                   className="checkbox"
                   autoFocus
                 />
-                <p className="displayed-task">{item}</p>
+                <p className="task-text">{item}</p>
               </li>
             ))}
             {checkedItems.length != 0 && <h3>Completed</h3>}
@@ -132,11 +138,16 @@ export default function TaskList({ listIndex, taskLists, setTaskLists }) {
           </ul>
         </div>
         <div className="flower-container">
-          <p>flower count: {Math.floor(taskLists[listIndex].checkedItems.length/5)}</p>
-          <img  src={flower} alt=""/>
+          <div id="flower-count">
+            {/* <img src={FlowerIcon} width='50px'alt="Flower Count" /> */}
+            <p id="flower-text">flowers: {" "}
+              {Math.floor(taskLists[listIndex].checkedItems.length / 5)}
+            </p>
+            </div>
+            <img  src={require("../Flowers/" + allFlowers[taskLists[listIndex].checkedItems.length % 5]['source'] + ".svg")} alt={allFlowers[taskLists[listIndex].checkedItems.length % 5]['alt']}/>          
         </div>
       </div>
     </>
   );
 }
-//arrow function =>{handleInputChange(event,index)} allows parameters passed
+

@@ -9,9 +9,6 @@ export default function EditListMode({ taskLists, handleChangeTaskState, listInd
   const [editingTitle, setEditingTitle]=useState(currentTitle)
   const listItems = taskLists[listIndex].currentItems
   const [editingList, setEditingList]=useState([...listItems])
-  // const checkedItems = taskLists[listIndex].completedItems
-  // const editModeDisplayed = taskLists[listIndex].editModeDisplayed
-  // const optionsDisplayed = taskLists[listIndex].optionsDisplayed
 
 
     const listRef = useRef([]);
@@ -36,6 +33,8 @@ export default function EditListMode({ taskLists, handleChangeTaskState, listInd
       
     }
     function handleTitleChange(event){
+      event.target.style.height = '1em';
+      event.target.style.height = `${event.target.scrollHeight}px`; 
       setEditingTitle(event.target.value)
     }
   
@@ -70,9 +69,9 @@ export default function EditListMode({ taskLists, handleChangeTaskState, listInd
     
     return (
       <div id="edit-mode-container" >
-      <div className="list-container edit-mode">
+      <div className=" edit-mode">
         <div className='list-header'>      
-          <input className="title-input list-name" value={editingTitle} onChange={(event)=>{handleTitleChange(event)}}></input>
+          <textarea  rows='1' className="title-input list-title" value={editingTitle} onChange={(event)=>{handleTitleChange(event)}}></textarea>
           <button onClick={(event)=>{handleCloseEditMode(event)}} className="edit-list-close-button"><X color="gray"/></button>
           </div>
         <ul>
@@ -80,31 +79,27 @@ export default function EditListMode({ taskLists, handleChangeTaskState, listInd
             <li className="task-container" key={index}>
               <input 
                 type= 'checkbox' disabled={true}/>
-              <textarea 
+              <textarea className=" task-text"
                 rows="1" 
                 value={item}
                 ref = {el => listRef.current = [...listRef.current, el]}
                 onBlur={(event) => {handleUserClickOut(event,index)}}  
                 onChange={(event) => {handleTaskChange(event, index)}} 
-                className="task-text"
               />
             </li>
           ))}
-          <li className="task-container">
-            <textarea 
-              rows="1" 
-              placeholder='+ New Task' 
-              onClick={(e) => createNewTask(e)} 
-              className="task-text"
-            /> 
+          <button className="task-container new-task task-text">
+            <div onClick={(e) => createNewTask(e)} >
+              + New Task
+          </div> 
             <input 
               disabled={true}
               type= 'checkbox'
               id='invisible-checkbox'
             />
-          </li>
+          </button>
         </ul>
-        <button onClick={(event)=>{handleSave(event)}}>Save</button>
+        <button className="blue-button"onClick={(event)=>{handleSave(event)}}>Save</button>
       </div>
       </div>
 

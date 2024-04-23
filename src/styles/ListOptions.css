@@ -28,12 +28,9 @@
     justify-content: center;
     
     position: absolute;
-    top: 5rem;
-    right: -5rem;
+    margin-top: 0rem;
+    margin-right: -25rem;
 }
-/* .option{
-    width: 100%;
-} */
 
 .edit-option{
     width:100%;

@@ -55,7 +55,7 @@ h3{
   overflow-wrap: break-word;
 }
 
-#new-list-button{
+.blue-button{
   font-size: 1vw;
   font-weight: 600;
   align-self: center;

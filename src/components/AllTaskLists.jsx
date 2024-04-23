@@ -47,7 +47,7 @@ export default function AllTaskLists() {
     <div id="website-container">
     <header id="homepage-header">
       <h1 id="homepage-title">TO DO GARDEN</h1>
-      <button id="new-list-button" onClick={(event)=>{handleNewList(event)}}>+ NEW LIST</button>
+      <button className="blue-button" onClick={(event)=>{handleNewList(event)}}>+ NEW LIST</button>
     </header>
     {/* className="all-lists-container" */}
     <ResponsiveMasonry 
