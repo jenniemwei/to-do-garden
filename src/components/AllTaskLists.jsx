@@ -1,9 +1,4 @@
 // things to do:
-// make save close edit menu
-// make close edit mode an X
-// make edit options a three dot
-//delete empty list
-//disply 5 reent tasks
 //completed count
 
 import Masonry,{ResponsiveMasonry} from "react-responsive-masonry"; 
@@ -12,11 +7,21 @@ import "../styles/AllTaskLists.css"
 import { useEffect, useState } from "react"
 
 export default function AllTaskLists() {
-  const [taskLists, setTaskLists] = useState([]); 
+  const [taskLists, setTaskLists] = useState([  {
+    title: "Welcome to To Do Garden!",
+    currentItems: ["Check off tasks to grow flowers!", "Click the three dots to edit lists or delete lists", "After clicking 'edit list' start typing to edit tasks or title", "delete this list and create your own!"],
+    checkedItems: [],
+    editModeDisplayed: false,
+    optionsDisplayed: false,
+    isWelcomeList: true,
+    completedDisplayed: false,
+  } 
+  ]); 
   
+
   useEffect(() => {
     const taskLists = JSON.parse(localStorage.getItem("taskLists"));
-    if (taskLists) {
+    if (taskLists && taskLists[0].isWelcomeList === false || taskLists.length>1) {
       setTaskLists(taskLists);
     }
   }, []);
@@ -38,6 +43,7 @@ export default function AllTaskLists() {
         checkedItems: [],
         editModeDisplayed: true,
         optionsDisplayed: false,
+        isWelcomeList: false,
       }
     ])
   }

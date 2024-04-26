@@ -33,27 +33,21 @@ ul{
   align-self: center;
 }
 p, .task-text{
-  width: 100%;
-  font-size: 1.5em;
+  width: 100%; 
+  font-size: 1.2em;
   margin: .3rem .5rem;
 }
 input[type="checkbox"] {
   margin-right: 0.5rem;
   margin-top: .7rem;
-  width: 1.3rem;
+  min-width: 1.3rem;
   height: 1.3rem;
 }
-
-h3{
-  font-size: 1.5em;
-  color: rgb(145, 145, 145);
-  margin: 15px 0 0 0;
-  font-weight:600
-}
 .displayed-task{
-  width:80%;
+  width:100%;
   overflow-wrap: break-word;
-}
+ }
+ 
 
 .blue-button{
   font-size: 1vw;
@@ -71,10 +65,8 @@ h3{
   font-size: 3rem;
 }
 #homepage-header{
-  /* width: 100vw; */
-  /* background-color: rgb(140, 227, 239); */
   display: flex;
-  margin: 1.5rem 0;
+  margin: 1.5rem 0 2.5rem;
   justify-content: space-between;
   gap: 50%;
   flex-wrap: wrap;

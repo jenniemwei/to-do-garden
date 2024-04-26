@@ -4,27 +4,29 @@ import ListOptions from "./ListOptions";
 import EditListMode from "./EditListMode";
 import { MoreVertical } from "react-feather";
 import FlowerIcon from "../Flowers/FlowerIcon.svg";
+import { ChevronRight } from "react-feather";
+import { ChevronDown } from "react-feather";
 
 export default function TaskList({ listIndex, taskLists, setTaskLists }) {
   const allFlowers=[{
     source: "Flower1",
-    alt: "This is the first flower"
+    alt: "A small stem with sprouting leaf, first stage of the flower growth"
   },
   {
     source: "Flower2",
-    alt: "This is the second flower"
+    alt: "Taller stem, two leaves, and a bud, second stage of the flower growth"
   },
   {
     source: "Flower3",
-    alt: "This is the third flower"
+    alt: "Taller stem, two larger leaves, opening flower, third stage of the flower growth"
   },
   {
     source: "Flower4",
-    alt: "This is the fourth flower"
+    alt: "Tall stem, two full leaves, a third sprouting leaf, flower blooming, fourth stage of the flower growth"
   },
   {
     source: "Flower5",
-    alt: "This is the fifth flower"
+    alt: "4 leaves, flower in full bloom, fifth stage of flower growth"
   }]
 
   function handleChangeTaskState(index, key, value) {
@@ -37,14 +39,13 @@ export default function TaskList({ listIndex, taskLists, setTaskLists }) {
   const checkedItems = taskLists[listIndex].checkedItems;
   const editModeDisplayed = taskLists[listIndex].editModeDisplayed;
   const optionsDisplayed = taskLists[listIndex].optionsDisplayed;
+  const completedDisplayed=taskLists[listIndex].completedDisplayed;
 
   function handleCheckBoxChange(event, index, item) {
     const newListItems = [...listItems];
     const newCheckedItems = [...checkedItems, item];
     newListItems.splice(index, 1);
-    const newFlower = allFlowers[newCheckedItems.length % 5];
-    // setFlower(newFlower);
-    // const newListItems = listItems.filter((item, i) => i !== index)
+    // const newFlower = allFlowers[newCheckedItems.length % 5];
 
     handleChangeTaskState(listIndex, "checkedItems", newCheckedItems);
     console.log("newCheckedItems", newCheckedItems);
@@ -62,11 +63,6 @@ export default function TaskList({ listIndex, taskLists, setTaskLists }) {
       !currentOptionsDisplayed
     );
   }
-
-  // function createNewTask(event) {
-  //   const text = event.target.value
-  //   setListItems([...listItems, text])
-  // }
 
   return (
     <>
@@ -91,6 +87,7 @@ export default function TaskList({ listIndex, taskLists, setTaskLists }) {
             <div className="more-container">
               <MoreVertical
                 id="more-button"
+                aria-label="click to display list options"
                 onClick={(event) => {
                   handleOptionsClick(event);
                 }}
@@ -117,14 +114,24 @@ export default function TaskList({ listIndex, taskLists, setTaskLists }) {
                   onChange={(event) => {
                     handleCheckBoxChange(event, index, item);
                   }}
-                  className="checkbox"
+                  // className="checkbox"
                   autoFocus
                 />
-                <p className="displayed-task">{item}</p>
+                <p >{item}</p>
               </li>
             ))}
-            {checkedItems.length != 0 && <h3>Completed</h3>}
-            {checkedItems.map((item, index) => (
+            <div className="completed-header">
+            {checkedItems.length !== 0 && <h3>Completed</h3>}
+            {checkedItems.length !==0 && (completedDisplayed ? <ChevronDown aria-label="click to minimize completed tasks" onClick={(event)=>{
+              handleChangeTaskState(listIndex, "completedDisplayed", !completedDisplayed)
+            }}></ChevronDown>:
+            <ChevronRight aria-label="click to display completed tasks" onClick={(event)=>{
+              handleChangeTaskState(listIndex, "completedDisplayed", !completedDisplayed)
+            }}></ChevronRight>)}
+            
+            </div>
+            
+            {completedDisplayed && checkedItems.map((item, index) => (
               <li className="task-container" key={index + listItems.length}>
                 <input
                   type="checkbox"
@@ -132,7 +139,7 @@ export default function TaskList({ listIndex, taskLists, setTaskLists }) {
                   checked={true}
                   // className="task"
                 />
-                <p className="displayed-task">{item}</p>
+                <p>{item}</p>
               </li>
             ))}
           </ul>
@@ -141,7 +148,7 @@ export default function TaskList({ listIndex, taskLists, setTaskLists }) {
           <div id="flower-count">
             {/* <img src={FlowerIcon} width='50px'alt="Flower Count" /> */}
             <p id="flower-text">flowers: {" "}
-              {Math.floor(taskLists[listIndex].checkedItems.length / 5)}
+              {Math.floor((taskLists[listIndex].checkedItems.length+1) / 5)}
             </p>
             </div>
             <img  src={require("../Flowers/" + allFlowers[taskLists[listIndex].checkedItems.length % 5]['source'] + ".svg")} alt={allFlowers[taskLists[listIndex].checkedItems.length % 5]['alt']}/>          

@@ -53,7 +53,7 @@ li {
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   min-width: 70%;
 }
 
@@ -61,15 +61,19 @@ li {
 .list-items-container{
   display: flex;
   flex-direction: column;
-  align-items: left;
-  width:100%;
-
-}
+  justify-content: flex-start;
+  align-items: flex-start; 
+  overflow-wrap: break-word;
+  /* width:80%; */
+} 
 .task-container{
+  margin: .25rem 0;
   display: flex;
   align-items: flex-start;
-  /* margin:1rem; */
+  overflow-wrap: break-word;
+  width: 100%;
 }
+
 hr{
   width:100%;
   border-width:2px;
@@ -88,9 +92,8 @@ body {
 .list-title {
   width: 80%;
   font-weight: 600;
-  font-size: 2rem;
+  font-size: 1.8rem;
   overflow-wrap: break-word;
-  text-transform: uppercase;
   justify-self: flex-start;
 }
 .list-header{
@@ -99,8 +102,19 @@ body {
   width: 100%;
   justify-content: space-between;
 }
-
+.completed-header{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+h3{
+  font-size: 1.5em;
+  color: rgb(145, 145, 145);
+  font-weight:600
+}
 /* editmode */
+
 #edit-mode-container{
   display: flex;
   justify-content: center;
@@ -135,7 +149,7 @@ body {
 }
 
 
-.edit-list-close-button {
+.close-button {
   background-color: transparent;
   border: none;
   align-self: flex-start;
@@ -165,5 +179,5 @@ body {
   font-size: 1rem;
   font-weight: 600;
   text-transform: uppercase;
-  color: rgb(18, 109, 115)
+  color: rgb(20, 127, 141)
 }

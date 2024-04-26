@@ -1,57 +1,59 @@
-*{
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
-.more-container{
-    display: flex;
-    background-color: rgb(255, 255, 255);
-    border-radius: 20px;
-    width: 30px;
-    height: 30px;
-    align-items: center;
-    justify-content: center;
-
+.more-container {
+  display: flex;
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+  width: 30px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
 }
-.more-container:hover{
-    background-color: rgb(0, 0, 0, 0.1);
-}   
-
-
-.list-options-container{
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(255, 255, 255);
-    filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.5));
-    width:10rem;
-    border-radius: 10px;
-    border-width:0;
-    align-items: center;
-    justify-content: center;
-    
-    position: absolute;
-    margin-top: 0rem;
-    margin-right: -25rem;
+.more-container:hover {
+  background-color: rgb(0, 0, 0, 0.1);
 }
 
-.edit-option{
-    width:100%;
-    border-width:0;
-    border-radius: 0px;
-    padding:5px 10px;
-    margin:0;
-    font-size: 1.2em;
-    background-color: white;
+.list-options-container {
+  background-color: rgb(255, 255, 255);
+  filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.5));
+  width: 10rem;
+  border-radius: 10px;
+  border-width: 0;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  margin-top: 0rem;
+  margin-right: -25rem;
+}
+.list-options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.edit-option:hover{
-    background-color: rgb(0, 0, 0, 0.1);
+.edit-option {
+  width: 100%;
+  border-width: 0;
+  border-radius: 0px;
+  padding: 5px 10px;
+  margin: 0;
+  font-size: 1.2em;
+  background-color: white;
 }
 
-h1{
-    font-size: 1rem;
-    padding:0;
-    margin:0;
+.edit-option:hover {
+  background-color: rgb(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 1rem;
+  padding: 0;
+  margin: 0;
 }
 
 .task {
-    padding: 0;
+  padding: 0;
 }
