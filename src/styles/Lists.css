@@ -8,9 +8,11 @@
 }
 
 li{
-  display:flex;
+  /* display:flex;
   align-items: center;
+  border-radius: 5px;  */
 }
+
 textarea {
     border: 0px solid transparent;
     background-color: #ffffff;
@@ -18,8 +20,14 @@ textarea {
     font-size: 1em;
     resize: none; 
     /* overflow: wrap; */
-
  }
+
+.regular-task-text {
+  flex-grow: 1;
+  width: 80%;
+  /* word-wrap: break-word;
+  overflow: break-word; */
+}
 
 textarea:focus {
   outline: none; /* Removes the default focus outline */
@@ -30,11 +38,6 @@ ul {
   list-style-type: none;
   padding: 0 0px;
 }
-
-li {
-  border-radius: 5px;
-}
-
 
 .task-list{
   display: flex;

@@ -38,7 +38,7 @@ export default function AllTaskLists() {
     setTaskLists([
       ...taskLists,
       {
-        title: "Title",
+        title: "",
         currentItems: [],
         checkedItems: [],
         editModeDisplayed: true,

@@ -117,7 +117,7 @@ export default function TaskList({ listIndex, taskLists, setTaskLists }) {
                   // className="checkbox"
                   autoFocus
                 />
-                <p >{item}</p>
+                <p className="regular-task-text">{item}</p>
               </li>
             ))}
             <div className="completed-header">
@@ -139,7 +139,7 @@ export default function TaskList({ listIndex, taskLists, setTaskLists }) {
                   checked={true}
                   // className="task"
                 />
-                <p>{item}</p>
+                <p className="regular-task-text">{item}</p>
               </li>
             ))}
           </ul>

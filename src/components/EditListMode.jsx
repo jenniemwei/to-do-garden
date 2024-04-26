@@ -71,6 +71,7 @@ export default function EditListMode({
             rows="1"
             className="title-input list-title"
             value={editingTitle}
+            placeholder="Title"
             onChange={(event) => {
               handleTitleChange(event);
             }}
