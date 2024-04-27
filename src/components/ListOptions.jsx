@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../styles/ListOptions.css";
+import "../css/ListOptions.css";
 import { X } from "react-feather";
 
 export default function ListOptions({
@@ -8,15 +8,14 @@ export default function ListOptions({
   listIndex,
   setTaskLists,
 }) {
+  //deletes list from taskLists state when user clicks on delete list
   function handleDelete(event, listIndex) {
     const newTaskLists = [...taskLists];
-    console.log("LIST INDEX", listIndex);
     newTaskLists.splice(listIndex, 1);
-    console.log("NEW TASK LISTS", newTaskLists);
     setTaskLists(newTaskLists);
-    console.log("TASK LISTS", taskLists);
   }
 
+  //turns on edit mode when user clicks on edit list
   function handleEdit(event) {
     handleChangeTaskState(listIndex, "editModeDisplayed", true);
     handleChangeTaskState(listIndex, "optionsDisplayed", false);

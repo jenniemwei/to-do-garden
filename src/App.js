@@ -1,9 +1,5 @@
-// import ListOptions from './components/ListOptions';
-// import TaskList from './components/TaskList';
-import { useEffect, useState } from "react";
 import AllTaskLists from './components/AllTaskLists';
-import './styles/fonts.css';
-
+import './css/fonts.css';
 
 function App() {
   return (

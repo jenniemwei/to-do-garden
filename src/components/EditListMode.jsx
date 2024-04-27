@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from "react";
-import ListOptions from "./ListOptions";
 import { X } from "react-feather";
 
 export default function EditListMode({
@@ -7,7 +6,6 @@ export default function EditListMode({
   handleChangeTaskState,
   listIndex,
 }) {
-
   const currentTitle = taskLists[listIndex].title;
   //editing title that doesn't change taskLists state until save button is clicked
   const [editingTitle, setEditingTitle] = useState(currentTitle);
@@ -23,7 +21,7 @@ export default function EditListMode({
       listRef.current[size - 1].focus(); //focuses on recently created task
     }
   }, [editingList.length]);
-//handles change in task content in editing list
+  //handles change in task content in editing list
   function handleTaskChange(event, index) {
     const newListItems = [...editingList];
     newListItems[index] = event.target.value;
@@ -42,7 +40,6 @@ export default function EditListMode({
   function handleUserClickOut(event, index) {
     const taskContent = event.target.value;
     if (taskContent.length === 0) {
-      console.log("EMPTY TASK");
       const newEditingList = [...editingList];
       newEditingList.pop(index);
       setEditingList(newEditingList);
@@ -52,7 +49,7 @@ export default function EditListMode({
   function handleCloseEditMode(event) {
     handleChangeTaskState(listIndex, "editModeDisplayed", false);
   }
-//creates new task in the editing list when user clicks on + New Task
+  //creates new task in the editing list when user clicks on + New Task
   function createNewTask(event) {
     const text = event.target.value;
     setEditingList([...editingList, text]);
@@ -69,7 +66,9 @@ export default function EditListMode({
     <div id="edit-mode-container">
       <div className=" edit-mode">
         <div className="list-header">
+          {/* aria label to describe the purpose of the text area for screen reader */}
           <textarea
+            aria-label="type to edit list title"
             rows="1"
             className="title-input list-title"
             value={editingTitle}
@@ -92,7 +91,9 @@ export default function EditListMode({
           {editingList.map((item, index) => (
             <li className="task-container" key={index}>
               <input type="checkbox" disabled={true} />
+              {/* aria label to describe the purpose of the text area for screen reader */}
               <textarea
+                aria-label="type to edit task content"
                 className=" task-text"
                 rows="1"
                 value={item}
@@ -112,6 +113,7 @@ export default function EditListMode({
           </button>
         </ul>
         <button
+          aria-label="click to save changes"
           className="blue-button"
           onClick={(event) => {
             handleSave(event);
