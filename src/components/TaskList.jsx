@@ -8,6 +8,7 @@ import { ChevronRight } from "react-feather";
 import { ChevronDown } from "react-feather";
 
 export default function TaskList({ listIndex, taskLists, setTaskLists }) {
+  //flower images and alt text for each stage of flower growth
   const allFlowers=[{
     source: "Flower1",
     alt: "A small stem with sprouting leaf, first stage of the flower growth"
@@ -28,7 +29,7 @@ export default function TaskList({ listIndex, taskLists, setTaskLists }) {
     source: "Flower5",
     alt: "4 leaves, flower in full bloom, fifth stage of flower growth"
   }]
-
+  //changes the state of taskLists, passed into other components to change taskLists state
   function handleChangeTaskState(index, key, value) {
     const newTaskLists = [...taskLists];
     newTaskLists[index][key] = value;
@@ -37,21 +38,21 @@ export default function TaskList({ listIndex, taskLists, setTaskLists }) {
 
   const listItems = taskLists[listIndex].currentItems;
   const checkedItems = taskLists[listIndex].checkedItems;
+  //states for displaying edit mode, list options, and completed tasks
   const editModeDisplayed = taskLists[listIndex].editModeDisplayed;
   const optionsDisplayed = taskLists[listIndex].optionsDisplayed;
   const completedDisplayed=taskLists[listIndex].completedDisplayed;
 
+  //handles checkbox change, moves checked item to checkedItems array
   function handleCheckBoxChange(event, index, item) {
     const newListItems = [...listItems];
     const newCheckedItems = [...checkedItems, item];
     newListItems.splice(index, 1);
-    // const newFlower = allFlowers[newCheckedItems.length % 5];
-
     handleChangeTaskState(listIndex, "checkedItems", newCheckedItems);
     console.log("newCheckedItems", newCheckedItems);
     handleChangeTaskState(listIndex, "currentItems", newListItems);
   }
-
+//sets optionsDisplayed to true when user clicks on the three dots, displaying list options
   function handleOptionsClick(event) {
     for (let i = 0; i < taskLists.length; i++) {
       handleChangeTaskState(i, "optionsDisplayed", false);
@@ -75,9 +76,6 @@ export default function TaskList({ listIndex, taskLists, setTaskLists }) {
       )}
       <div
         className="task-list"
-        style={{
-          zIndex: 1000 - (listIndex % (window.innerWidth > 900 ? 3 : 2)),
-        }}
       >
         <div className="list-container ">
           <div className="list-header">
@@ -114,15 +112,14 @@ export default function TaskList({ listIndex, taskLists, setTaskLists }) {
                   onChange={(event) => {
                     handleCheckBoxChange(event, index, item);
                   }}
-                  // className="checkbox"
                   autoFocus
                 />
                 <p className="regular-task-text">{item}</p>
               </li>
             ))}
             <div className="completed-header">
-            {checkedItems.length !== 0 && <h3>Completed</h3>}
-            {checkedItems.length !==0 && (completedDisplayed ? <ChevronDown aria-label="click to minimize completed tasks" onClick={(event)=>{
+            {checkedItems != null && checkedItems.length !== 0 && <h3>Completed</h3>}
+            {checkedItems != null &&  checkedItems.length !==0 && (completedDisplayed ? <ChevronDown aria-label="click to minimize completed tasks" onClick={(event)=>{
               handleChangeTaskState(listIndex, "completedDisplayed", !completedDisplayed)
             }}></ChevronDown>:
             <ChevronRight aria-label="click to display completed tasks" onClick={(event)=>{
@@ -137,7 +134,6 @@ export default function TaskList({ listIndex, taskLists, setTaskLists }) {
                   type="checkbox"
                   disabled={true}
                   checked={true}
-                  // className="task"
                 />
                 <p className="regular-task-text">{item}</p>
               </li>
@@ -146,7 +142,6 @@ export default function TaskList({ listIndex, taskLists, setTaskLists }) {
         </div>
         <div className="flower-container">
           <div id="flower-count">
-            {/* <img src={FlowerIcon} width='50px'alt="Flower Count" /> */}
             <p id="flower-text">flowers: {" "}
               {Math.floor((taskLists[listIndex].checkedItems.length+1) / 5)}
             </p>

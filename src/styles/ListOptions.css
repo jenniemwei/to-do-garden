@@ -22,10 +22,11 @@
   border-width: 0;
   align-items: center;
   justify-content: center;
-
+  align-self: flex-end;
   position: absolute;
   margin-top: 0rem;
-  margin-right: -25rem;
+  /* margin-left: 80%; */
+  margin-right: -10rem;
 }
 .list-options {
   display: flex;

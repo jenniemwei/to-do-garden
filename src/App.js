@@ -6,10 +6,6 @@ import './styles/fonts.css';
 
 
 function App() {
-
-
-  // const [listState, setListState] = useState([{"name": "Tasks", "tasks": ["task 1", "task 2"]}])
-
   return (
     <div>
       <AllTaskLists />

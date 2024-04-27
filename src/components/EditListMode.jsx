@@ -7,9 +7,12 @@ export default function EditListMode({
   handleChangeTaskState,
   listIndex,
 }) {
+
   const currentTitle = taskLists[listIndex].title;
+  //editing title that doesn't change taskLists state until save button is clicked
   const [editingTitle, setEditingTitle] = useState(currentTitle);
   const listItems = taskLists[listIndex].currentItems;
+  //editing list that doesn't change taskLists state until save button is clicked
   const [editingList, setEditingList] = useState([...listItems]);
 
   const listRef = useRef([]);
@@ -20,15 +23,17 @@ export default function EditListMode({
       listRef.current[size - 1].focus(); //focuses on recently created task
     }
   }, [editingList.length]);
-
+//handles change in task content in editing list
   function handleTaskChange(event, index) {
     const newListItems = [...editingList];
     newListItems[index] = event.target.value;
     setEditingList(newListItems);
+    // resizes text area to fit typed content
     event.target.style.height = "1em";
     event.target.style.height = `${event.target.scrollHeight}px`;
   }
   function handleTitleChange(event) {
+    // resizes text area to fit typed title
     event.target.style.height = "1em";
     event.target.style.height = `${event.target.scrollHeight}px`;
     setEditingTitle(event.target.value);
@@ -43,20 +48,17 @@ export default function EditListMode({
       setEditingList(newEditingList);
     }
   }
+  //closes edit mode when user clicks on close button by setting editModeDisplayed to false
   function handleCloseEditMode(event) {
     handleChangeTaskState(listIndex, "editModeDisplayed", false);
-    if (
-      taskLists[listIndex].currentItems.length === 0 &&
-      taskLists[listIndex].title === "Title"
-    ) {
-    }
   }
-
+//creates new task in the editing list when user clicks on + New Task
   function createNewTask(event) {
     const text = event.target.value;
     setEditingList([...editingList, text]);
   }
 
+  //saves editing list and title to taskLists state
   function handleSave(event) {
     handleChangeTaskState(listIndex, "editModeDisplayed", false);
     handleChangeTaskState(listIndex, "currentItems", editingList);
