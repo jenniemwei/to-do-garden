@@ -54,6 +54,7 @@ ul {
   padding: 2rem;
   border-radius: 10px;
   background-color: #ffffff;
+  border: 1px solid rgb(225, 225, 225);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -169,18 +170,14 @@ h3{
   justify-content: space-between;
 
 }
-.flower-placeholder{
-  background-color:rgb(255, 147, 147);
-  width:40px;
-  height: 40px;
-}
+
 #flower-count{
   display: flex;
   align-self: flex-start;
 }
 #flower-text{
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: 600;
   text-transform: uppercase;
-  color: rgb(20, 127, 141)
+  color: rgb(108, 108, 108)
 }

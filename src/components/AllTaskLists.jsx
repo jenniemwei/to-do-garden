@@ -15,10 +15,9 @@ export default function AllTaskLists() {
     console.log(taskListsFromLocal);
 
     if (taskListsFromLocal == null) {
-      console.log("THIS IS CALLED");
       localStorage.setItem("taskLists", JSON.stringify([
         {
-          title: "Welcome to To Do Garden!",
+          title: "Welcome to To Do Garden ❀༉‧˚.",
           currentItems: ["Check off tasks to grow flowers!", "Click the three dots to edit lists or delete lists", "After clicking 'edit list' start typing to edit tasks or title", "delete this list and create your own!"],
           checkedItems: [],
           editModeDisplayed: false,
@@ -69,7 +68,7 @@ export default function AllTaskLists() {
   return (
     <div id="website-container">
     <header id="homepage-header">
-      <h1 id="homepage-title">TO DO GARDEN</h1>
+      <h1 id="homepage-title">To Do Garden 🌷</h1>
       <button className="blue-button" onClick={(event)=>{handleNewList(event)}}>+ NEW LIST</button>
     </header>
     <ResponsiveMasonry 

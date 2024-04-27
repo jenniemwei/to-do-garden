@@ -142,7 +142,7 @@ export default function TaskList({ listIndex, taskLists, setTaskLists }) {
         </div>
         <div className="flower-container">
           <div id="flower-count">
-            <p id="flower-text">flowers: {" "}
+            <p id="flower-text" aria-label="Flowers completed">🌷 {"  "}
               {Math.floor((taskLists[listIndex].checkedItems.length+1) / 5)}
             </p>
             </div>
