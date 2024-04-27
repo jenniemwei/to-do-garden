@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/to-do-lists/static/css/main.bc63433d.css",
-    "main.js": "/to-do-lists/static/js/main.1e4d24cd.js",
-    "static/media/Flower5.svg": "/to-do-lists/static/media/Flower5.c00979914a9d5389f842.svg",
-    "static/media/FlowerIcon.svg": "/to-do-lists/static/media/FlowerIcon.e36edc8fca6957f359df.svg",
-    "static/media/Flower4.svg": "/to-do-lists/static/media/Flower4.e45bae3472892b2eb2db.svg",
-    "static/media/Flower2.svg": "/to-do-lists/static/media/Flower2.9c152644967851bd2ca2.svg",
-    "static/media/Flower3.svg": "/to-do-lists/static/media/Flower3.16764ced6b0092ac1070.svg",
-    "static/media/Flower1.svg": "/to-do-lists/static/media/Flower1.a50cee7f5dd903754be7.svg",
-    "index.html": "/to-do-lists/index.html",
-    "main.bc63433d.css.map": "/to-do-lists/static/css/main.bc63433d.css.map",
-    "main.1e4d24cd.js.map": "/to-do-lists/static/js/main.1e4d24cd.js.map"
+    "main.css": "/to-do-garden/static/css/main.bc63433d.css",
+    "main.js": "/to-do-garden/static/js/main.eee4cbca.js",
+    "static/media/Flower5.svg": "/to-do-garden/static/media/Flower5.c00979914a9d5389f842.svg",
+    "static/media/FlowerIcon.svg": "/to-do-garden/static/media/FlowerIcon.e36edc8fca6957f359df.svg",
+    "static/media/Flower4.svg": "/to-do-garden/static/media/Flower4.e45bae3472892b2eb2db.svg",
+    "static/media/Flower2.svg": "/to-do-garden/static/media/Flower2.9c152644967851bd2ca2.svg",
+    "static/media/Flower3.svg": "/to-do-garden/static/media/Flower3.16764ced6b0092ac1070.svg",
+    "static/media/Flower1.svg": "/to-do-garden/static/media/Flower1.a50cee7f5dd903754be7.svg",
+    "index.html": "/to-do-garden/index.html",
+    "main.bc63433d.css.map": "/to-do-garden/static/css/main.bc63433d.css.map",
+    "main.eee4cbca.js.map": "/to-do-garden/static/js/main.eee4cbca.js.map"
   },
   "entrypoints": [
     "static/css/main.bc63433d.css",
-    "static/js/main.1e4d24cd.js"
+    "static/js/main.eee4cbca.js"
   ]
 }
