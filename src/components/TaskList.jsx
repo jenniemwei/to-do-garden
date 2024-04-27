@@ -169,7 +169,7 @@ export default function TaskList({ listIndex, taskLists, setTaskLists }) {
             </p>
           </div>
           <img
-            src={require("../Flowers/" +
+            src={require("../flower-assets/" +
               allFlowers[taskLists[listIndex].checkedItems.length % 5][
                 "source"
               ] +
