@@ -99,6 +99,7 @@ body {
   font-size: 1.8rem;
   overflow-wrap: break-word;
   justify-self: flex-start;
+  color:rgb(51, 51, 51);
 }
 .list-header{
   display: flex;
@@ -176,8 +177,7 @@ h3{
   align-self: flex-start;
 }
 #flower-text{
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 600;
-  text-transform: uppercase;
-  color: rgb(108, 108, 108)
+  color: rgb(51, 51, 51);
 }

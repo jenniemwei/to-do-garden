@@ -69,7 +69,7 @@ export default function AllTaskLists() {
     <div id="website-container">
     <header id="homepage-header">
       <h1 id="homepage-title">To Do Garden 🌷</h1>
-      <button className="blue-button" onClick={(event)=>{handleNewList(event)}}>+ NEW LIST</button>
+      <button className="blue-button" onClick={(event)=>{handleNewList(event)}}>+ New List</button>
     </header>
     <ResponsiveMasonry 
     
